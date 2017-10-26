@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="x-ua-compatible" content="ie=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>MASTER</title>
+            <script src="{% static 'components/bower_components/webcomponentsjs/webcomponents-lite.js' %}"></script>
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+            
+            
+            <!-- <script src="../webcomponentsjs/webcomponents-lite.js"></script> -->
+            <link rel="import" href="{% static 'components/bower_components/app-layout/app-drawer/app-drawer.html' %}">
+            <link rel="import" href="{% static 'components/bower_components/app-layout/app-header/app-header.html' %}">
+            <link rel="import" href="{% static 'components/bower_components/app-layout/app-toolbar/app-toolbar.html' %}">
+            <!-- <link rel="import" href="{% static 'components/bower_components/iron-flex-layout/iron-flex-layout.html' %}"> -->
+            <link rel="import" href="{% static 'components/bower_components/iron-icons/iron-icons.html' %}">
+            <link rel="import" href="{% static 'components/bower_components/paper-icon-button/paper-icon-button.html' %}">
+            <link rel="import" href="{% static 'components/bower_components/paper-progress/paper-progress.html' %}"> 
+            
+            
+            <!-- <link rel="import" href="{% static 'components/bower_components/paper-toolbar/paper-toolbar.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/app-layout/app-drawer/app-drawer.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-button/paper-button.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-tabs/paper-tabs.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-tabs/paper-tab.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-input/paper-input.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-input/paper-input-container.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-icon-button/paper-icon-button.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-drawer-panel/paper-drawer-panel.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/iron-icons/iron-icons.html' %}">
+			<link rel="import" href="{% static 'components/bower_components/paper-card/paper-card.html' %}">
+			<link rel="import" href="{% static 'styles/custom-polymer-styles.html' %}"> -->
+			<link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}"> 
+			<!-- <link rel="import" href="{% static 'components/bower_components/font-Bakersfield/Bakersfield.html' %}"> -->
+    </head>
+    <body style="background-color:#e9ebee;">
+
+        <custom-style>
+        <style is="custom-style">
+            html, body {
+            margin: 0;
+            font-family: 'Bakersfield', 'Bakersfield', 'Noto', sans-serif;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+            background: #e9ebee;
+            max-height: 368px;
+            }
+            app-toolbar {
+            background-color: #ad0000;
+            color: #fff;
+            /* height:100px; */
+            }
+
+            paper-icon-button {
+            --paper-icon-button-ink-color: white;
+            }
+
+            paper-icon-button + [main-title] {
+            margin-left: 24px;
+            }
+            paper-progress {
+            display: block;
+            width: 100%;
+            --paper-progress-active-color: rgba(255, 255, 255, 0.5);
+            --paper-progress-container-color: transparent;
+            }
+            app-header {
+            /* @apply --layout-fixed-top; */
+            color: #fff;
+            /* height:100px; */
+            --app-header-background-rear-layer: {
+                background-color: #ef6c00;
+            };
+            }
+            app-drawer {
+            --app-drawer-scrim-background: rgba(60,0,0,0.6);
+            --app-drawer-content-container: {
+                background-color: #B0BEC5;
+            }
+            }
+
+        </style>
+        </custom-style>
+        <app-header reveals>
+            <app-toolbar>
+                <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+                <div main-title>My app</div>
+                <paper-icon-button icon="delete"></paper-icon-button>
+                <paper-icon-button icon="search"></paper-icon-button>
+                <paper-icon-button icon="close"></paper-icon-button>
+                <!-- <paper-progress value="10" indeterminate bottom-item></paper-progress> -->
+            </app-toolbar>
+        </app-header>
+        <!-- <h1 style="background-color: white;margin-top:100px;"> Here is a div to show the correct background color</h1> -->
+        
+        <div class="container" style="font-weight:bold;">
+			<div class="row">
+				<div class="col-lg-12 col-lg-12" style="padding-top: 20px;">
+		            <div class="card hovercard" style="background-color: white;">
+		                <div class="cardheader" style="text-align: left; background: white; height:75px;">
+		                	<h1 style="font-family: 'Bakersfield', 'Noto', sans-serif; color:black; padding: 15px; margin-top: 0px;">You scored:</h1>
+		                </div>
+	                	<div style="margin:auto; text-align: center; font-size: 64px;font-family: 'Bakersfield', 'Noto', sans-serif;">&#x1F601 90%</div>
+	                	<div style="margin:auto; text-align: center; font-size: 36px; padding-bottom: 20px;font-family: 'Bakersfield', 'Noto', sans-serif;">Wow! You must be proud.</div>
+		                <div class="info">
+		                	<div style="width:400px; margin:auto;font-family: 'Bakersfield', 'Noto', sans-serif;">
+			                    <div class="title" style="text-align: left;"> Key contributions</div>
+			                    <div style="width:250px; margin:auto;text-align: left;">
+			                    	<div class="desc" style="float:right;">1000 &#x1F64B</div>
+			                    	<div class="desc">Facebook friends</div>
+			                    	<div class="desc" style="float:right;">123 &#x1F503</div>
+			                    	<div class="desc">Retweets Index</div>
+			                    	<div class="desc" style="float:right;">1793 &#x1F49C</div>
+			                    	<div class="desc">Photo Likes Index</div>
+			                    </div>
+		                    </div>
+		                </div>
+		            </div>
+
+		        </div>
+
+			</div>
+		</div>		
+
+
+
+
+
+		<div class="container" style="font-weight:bold;">
+			<div class="row">
+				<div class="col-lg-4 col-lg-10" style="padding-top: 20px;">
+
+		            <div class="card hovercard">
+		                <div class="cardheader" style="background:#3B5998; text-align: left; height:110px">
+		                <img src="{% static 'media/social-media-icons/facebook.png' %}"
+		                		 style="width:53px; height:30px; float:right; margin-top:17px;margin-right:5px;"/>
+		                	<h1 style="font-family: Bakersfield; color:white; padding: 15px; margin-top: 0px;">Facebook</h1>
+
+		                </div>
+		                <div style="background-color:white">
+                            <div style="margin:auto; height:161px;">
+                                <paper-button raised class="custom fb">Link Facebook account</paper-button>
+                            </div>
+                            
+                            
+                            <div class="avatar">
+                                <img alt="" src="">
+                            </div>
+                            <div class="info" style="font-family: 'Bakersfield', 'Noto', sans-serif;">
+                                <div class="title" style="padding-bottom:10px;">
+                                    <h2 style="margin:0px 0 4px 0;font-family: 'Bakersfield', 'Noto', sans-serif; padding: 15px;">FB name</h2>
+                                </div>
+                                <div style="width:200px; margin:auto;text-align: left;">
+                                    <div class="desc" style="float:right;">1000 &#x1F64B</div>
+                                    <div class="desc">Facebook friends</div>
+                                    <div class="desc" style="float:right;">123 &#x1F44D</div>
+                                    <div class="desc">Likes Index</div>
+                                    <div class="desc" style="float:right;">1793 &#x1F4AC</div>
+                                    <div class="desc">Comments Index</div>
+                                    <div class="desc" style="float:right;">1793 &#x1F503</div>
+                                    <div class="desc">Shares Index</div>
+                                    <div class="desc" style="float:right;">1793 @</div>
+                                    <div class="desc">Tags Index</div>
+                                </div>
+                            </div>
+                        </div>
+		                
+		            </div>
+
+		        </div>
+
+				<div class="col-lg-4 col-lg-10" style="padding-top: 20px;">
+
+		            <div class="card hovercard">
+		                <div class="cardheader" style="background:#00aced; text-align: left; height:110px">
+		                <img src="{% static 'media/social-media-icons/twitter.jpg' %}"
+		                		 style="width:34px; height:30px; float:right; margin-right:15px; margin-top:20px; "/>		            		
+		                	<h1 style="font-family: Bakersfield; color:white; padding: 15px; margin-top: 0px;">Twitter</h1>
+		                </div>
+                        
+                        <div style="background-color:white">
+                            <div style="margin:auto; height:161px;">
+                                <paper-button raised class="custom tw">Link Twitter account</paper-button>
+                            </div>
+                            
+                            
+                            <div class="avatar">
+                                <img alt="" src="">
+                            </div>
+                            
+                            <div class="info" style="font-family: 'Bakersfield', 'Noto', sans-serif;">
+                                <div class="title" style="padding-bottom:10px;">
+                                    <h2 style="margin:0px 0 4px 0;font-family: 'Bakersfield', 'Noto', sans-serif; padding: 15px;">Twitter username</h2>
+                                </div>
+                                <div style="width:200px; margin:auto;text-align: left;">
+                                    <div class="desc" style="float:right;">1000 &#x1F503</div>
+                                    <div class="desc">Follows Index</div>
+                                    <div class="desc" style="float:right;">1000 &#x21A9</div>
+                                    <div class="desc">Followers</div>
+                                    <div class="desc" style="float:right;">1000 &#x21AA</div>
+                                    <div class="desc">Following</div>
+                                    <div class="desc" style="float:right;">123 &#x1F503</div>
+                                    <div class="desc">Retweets Index</div>
+                                    <div class="desc" style="float:right;">1793 &#x1F49C</div>
+                                    <div class="desc">Tweet Favorites index</div>
+                                    <div class="desc" style="float:right;">1793 @</div>
+                                    <div class="desc">Tags Index</div>
+                                </div>
+                            </div>
+                        </div>
+						
+		            </div>
+
+		        </div>
+
+				<div class="col-lg-4 col-lg-10" style="padding-top: 20px;">
+
+		            <div class="card hovercard">
+		                <div class="cardheader" 
+		                style="background: #8a3ab9; /* For browsers that do not support gradients */
+								  /* For Safari 5.1 to 6.0 */
+							   background: -webkit-linear-gradient(right,#fccc63,#fbad50,#cd486b,#bc2a8d,#8a3ab9);
+								  /* For Opera 11.1 to 12.0 */
+							   background: -o-linear-gradient(right,#fccc63,#fbad50,#cd486b,#bc2a8d,#8a3ab9);
+								  /* For Fx 3.6 to 15 */
+							   background: -moz-linear-gradient(right,#fccc63,#fbad50,#cd486b,#bc2a8d,#8a3ab9);
+								  /* Standard syntax */
+							   background: linear-gradient(to left ,#fccc63,#fbad50,#cd486b,#bc2a8d,#8a3ab9); text-align: left; height:110px;">
+		                	<img src="{% static 'media/social-media-icons/instagram.png' %}"
+		                		 style="width:35px; height:35px; float:right; margin-right:12px; margin-top:20px; border-width: 1px; border-color: white;"/>
+		                	<h1 style="font-family: Bakersfield; color:white; padding: 15px; margin-top: 0px;">Instagram</h1>
+		                </div>
+                        
+                        <div style="background-color:white">
+                            <div style="margin:auto; height:161px;">
+                                <paper-button raised class="custom ig">Link Instagram account</paper-button>
+                            </div>
+                            
+                            
+                            <div class="avatar">
+                                <img alt="" src="">
+                            </div>
+                            <div class="info" style="font-family: 'Bakersfield', 'Noto', sans-serif;">
+                                <div class="title" style="padding-bottom:10px;">
+                                    <h2 style="margin:0px 0 4px 0;font-family: 'Bakersfield', 'Noto', sans-serif; padding: 15px;">Insta username</h2>
+                                </div>
+                                <div style="width:200px; margin:auto;text-align: left;">
+                                    <div class="desc" style="float:right;">1000 &#x1F503</div>
+                                    <div class="desc">Follows Index</div>
+                                    <div class="desc" style="float:right;">1000 &#x21A9</div>
+                                    <div class="desc">Followers</div>
+                                    <div class="desc" style="float:right;">1000 &#x21AA</div>
+                                    <div class="desc">Following</div>
+                                    <div class="desc" style="float:right;">123 &#x1F49C</div>
+                                    <div class="desc">Photo Likes Index</div>
+                                    <div class="desc" style="float:right;">1793 @</div>
+                                    <div class="desc">Tags Index</div>
+                                </div>
+                            </div>
+                        </div>
+		                
+
+		            </div>
+
+		        </div>
+
+			</div>
+        </div>
+        <app-drawer id="drawer" swipe-open></app-drawer>
+    </body>
+
+</html>
