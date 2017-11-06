@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load socialaccount %}
 <html>
 	<head>
 			<meta charset="utf-8">
@@ -18,6 +19,7 @@
             <link rel="import" href="{% static 'components/bower_components/iron-icons/iron-icons.html' %}">
             <link rel="import" href="{% static 'components/bower_components/paper-icon-button/paper-icon-button.html' %}">
             <link rel="import" href="{% static 'components/bower_components/paper-progress/paper-progress.html' %}"> 
+            <link rel="import" href="{% static 'components/bower_components/paper-button/paper-button.html' %}"> 
             
             
             <!-- <link rel="import" href="{% static 'components/bower_components/paper-toolbar/paper-toolbar.html' %}">
@@ -81,6 +83,31 @@
             }
             }
 
+             paper-button.fb {
+                background-color: white;
+                color: #3B5998;
+                --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-blue-a200) !important;
+                color: white !important;
+                };
+            } 
+             paper-button.tw {
+                background-color: white;
+                color: #00aced;
+                --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-blue-a200) !important;
+                color: white !important;
+                };
+            } 
+             paper-button.ig {
+                background-color: white;
+                color: #8a3ab9;
+                --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-purple-a200) !important;
+                color: white !important;
+                };
+            } 
+
         </style>
         </custom-style>
         <app-header reveals>
@@ -134,14 +161,18 @@
 
 		            <div class="card hovercard">
 		                <div class="cardheader" style="background:#3B5998; text-align: left; height:110px">
-		                <img src="{% static 'media/social-media-icons/facebook.png' %}"
+		                    <img src="{% static 'media/social-media-icons/facebook.png' %}"
 		                		 style="width:53px; height:30px; float:right; margin-top:17px;margin-right:5px;"/>
-		                	<h1 style="font-family: Bakersfield; color:white; padding: 15px; margin-top: 0px;">Facebook</h1>
-
+                            <h1 style="font-family: Bakersfield; font-weight:bold; color:white; padding: 15px 15px 0 15px; margin-top: 0px; margin-bottom:5px;">Facebook</h1>
+                            
+                            
+                            <a href="{% provider_login_url 'facebook' process='connect' next='/'%}">
+                                <paper-button raised class="fb" style="padding-bottom:5px;padding-top:10px;margin-left:12px;">Link Facebook account</paper-button>
+                            </a>
 		                </div>
 		                <div style="background-color:white">
                             <div style="margin:auto; height:161px;">
-                                <paper-button raised class="custom fb">Link Facebook account</paper-button>
+                                <div style="margin:auto; width:50%; padding-top:40px; text-align:center;">Connect your Facebook account to add to your rating! </div>
                             </div>
                             
                             
@@ -177,12 +208,14 @@
 		                <div class="cardheader" style="background:#00aced; text-align: left; height:110px">
 		                <img src="{% static 'media/social-media-icons/twitter.jpg' %}"
 		                		 style="width:34px; height:30px; float:right; margin-right:15px; margin-top:20px; "/>		            		
-		                	<h1 style="font-family: Bakersfield; color:white; padding: 15px; margin-top: 0px;">Twitter</h1>
+                            <h1 style="font-family: Bakersfield; font-weight:bold;color:white;padding: 15px 15px 0 15px; margin-top: 0px; margin-bottom:5px;">Twitter</h1>
+                            <paper-button raised class="tw" style="padding-bottom:5px;padding-top:10px;margin-left:12px;">Link Twitter account</paper-button>                    
+
 		                </div>
                         
                         <div style="background-color:white">
                             <div style="margin:auto; height:161px;">
-                                <paper-button raised class="custom tw">Link Twitter account</paper-button>
+                                <div style="margin:auto; width:50%; padding-top:40px; text-align:center;">Connect your Twitter account to add to your rating! </div>
                             </div>
                             
                             
@@ -230,12 +263,15 @@
 							   background: linear-gradient(to left ,#fccc63,#fbad50,#cd486b,#bc2a8d,#8a3ab9); text-align: left; height:110px;">
 		                	<img src="{% static 'media/social-media-icons/instagram.png' %}"
 		                		 style="width:35px; height:35px; float:right; margin-right:12px; margin-top:20px; border-width: 1px; border-color: white;"/>
-		                	<h1 style="font-family: Bakersfield; color:white; padding: 15px; margin-top: 0px;">Instagram</h1>
-		                </div>
+                            <h1 style="font-family: Bakersfield; font-weight:bold; color:white; padding: 15px 15px 0 15px; margin-top: 0px; margin-bottom:5px;">Instagram</h1>
+                            <a href="{% provider_login_url 'instagram' process='connect' next='http://google.com'%}">
+                                <paper-button raised class="ig" style="padding-bottom:5px;padding-top:10px;margin-left:12px;">Link Instagram account</paper-button>                                        
+                            </a>
+                        </div>
                         
                         <div style="background-color:white">
                             <div style="margin:auto; height:161px;">
-                                <paper-button raised class="custom ig">Link Instagram account</paper-button>
+                                <div style="margin:auto; width:50%; padding-top:40px; text-align:center;">Connect your Instagram account to add to your rating! </div>
                             </div>
                             
                             
@@ -268,7 +304,9 @@
 
 			</div>
         </div>
-        <app-drawer id="drawer" swipe-open></app-drawer>
+        <app-drawer id="drawer" swipe-open>
+            <div style="margin:0px 0 4px 0;font-family: 'Bakersfield', 'Noto', sans-serif; padding: 15px;">View my profile</div>
+        </app-drawer>
     </body>
 
 </html>

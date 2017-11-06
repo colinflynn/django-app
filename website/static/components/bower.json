@@ -15,7 +15,7 @@
   "dependencies": {
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.16",
     "paper-toolbar": "polymerelements/paper-toolbar#^2.0.0",
-    "paper-button": "polymerelements/paper-button#^2.0.0",
+    "paper-button": "PolymerElements/paper-button#^2.0.0",
     "paper-input": "polymerelements/paper-input#^2.0.2",
     "paper-tabs": "polymerelements/paper-tabs#^2.0.0",
     "paper-card": "polymerelements/paper-card#^2.0.0",
